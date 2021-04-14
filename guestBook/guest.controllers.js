@@ -10,7 +10,7 @@ class postControllers {
     });
 
     await newPost.save();
-    res.status(201).json({ message: "New post added" });
+    res.status(201).json(newPost);
   }
 }
 
