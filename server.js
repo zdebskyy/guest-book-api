@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const cors = require("cors");
 const guestBookRouter = require("./guestBook/guest.router");
 
 const port = process.env.PORT || 3003;
@@ -35,6 +36,7 @@ module.exports = class guestBookServer {
   initMiddlwares() {
     this.server.use(express.json());
     this.server.use(morgan("dev"));
+    this.server.use(cors({}));
     console.log("middlewares initialized");
   }
 
