@@ -36,7 +36,7 @@ module.exports = class guestBookServer {
   initMiddlwares() {
     this.server.use(express.json());
     this.server.use(morgan("dev"));
-    // this.server.use(cors({}));
+    this.server.use(cors());
     console.log("middlewares initialized");
   }
 
