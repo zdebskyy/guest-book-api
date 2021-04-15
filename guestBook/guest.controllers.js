@@ -14,7 +14,11 @@ class postControllers {
   }
 
   async currentPost(req, res) {
-    const data = await postModel.find({});
+    const data = await await postModel.aggregate([
+      {
+        $sort: { createdAt: -1 },
+      },
+    ]);
     res.status(200).json(data);
   }
 }
